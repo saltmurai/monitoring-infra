@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  grafana:
+    image: grafana/grafana:8.3.3
+    volumes:
+      - grafana_data:/var/lib/grafana
+    ports:
+      - "3000:3000"
+    network_mode: "host"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=muchsecure  # You should change 'secret' to a more secure password
+      - GF_USERS_ALLOW_SIGN_UP=false
+
+volumes:
+  grafana_data:
+
